@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, Signal, viewChild } from '@angular/core';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { DEFAULT_PLATFORM, DEFAULT_PLATFORM_LABEL } from '@common/models';
@@ -80,16 +80,19 @@ export class DashboardComponent {
   onChangePlatform(platform: string) {
     const paginator = this.topSalesComponentRef()?.tablePaginator();
     const topRatingPaginator = this.topRatingComponentRef()?.tablePaginator();
-    if (paginator) {
-      paginator.pageSize = 25;
-    }
-
-    if (topRatingPaginator) {
-      topRatingPaginator.pageSize = 25;
-    }
-
+    this.resetPaginator(paginator);
+    this.resetPaginator(topRatingPaginator);
     this.dashboardFacade.getSalesStats(platform);
     this.dashboardFacade.getSales('', platform);
     this.dashboardFacade.getGames('', platform);
+  }
+
+  private resetPaginator(paginatorRef: MatPaginator | undefined) {
+    if (!paginatorRef) {
+      return;
+    }
+
+    paginatorRef.pageSize = 25;
+    paginatorRef.pageIndex = 0;
   }
 }
