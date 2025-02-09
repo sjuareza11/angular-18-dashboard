@@ -1,0 +1,36 @@
+<div class="game">
+  <h1 class="game__title">{{ game()?.gameName }}</h1>
+
+  <button class="game__button">
+    <a routerLink="" class="game__link">Volver </a>
+  </button>
+
+  <div class="game__content">
+    <div class="game__image-container">
+      <img [src]="game()?.coverUrl" alt="{{ game()?.gameName }}" class="game__image" />
+    </div>
+    <div class="game__details">
+      <div class="pet-detail__stats">
+        <p class="game__stat">
+          Desarollador: <span>{{ game()?.developer }}</span>
+        </p>
+        <p class="game__stat">
+          Plataforma: <span>{{ game()?.platform }}</span>
+        </p>
+        <p class="game__stat">
+          Valoración: <span>{{ game()?.rating }}</span>
+        </p>
+        <p class="game__stat">
+          Género: <span>{{ game()?.genre }}</span>
+        </p>
+        <p class="game__stat">
+          Fecha de lanzamiento: <span>{{ game()?.releaseYear }}</span>
+        </p>
+      </div>
+      <div class="game__description">
+        <h2 class="game__section-title">Descripción:</h2>
+        <p>{{ game()?.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+.game {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  &__image-container {
+    width: 100%;
+  }
+
+  &__image {
+    height: auto;
+  }
+
+  &__details {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  &__stat {
+    font-size: 18px;
+    font-weight: bold;
+    span {
+      font-weight: normal;
+    }
+    margin-bottom: 20px;
+  }
+
+  &__section-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    display: flex;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+
+    &:hover {
+      background-color: #ff6f61;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      padding: 7px 20px;
+    }
+  }
+}
+
+@media screen and (width >= 768px) {
+  .pet {
+    &__image-container {
+      width: 50%;
+    }
+  }
+}

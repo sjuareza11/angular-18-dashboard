@@ -1,0 +1,39 @@
+.top-rating-table {
+  &-container {
+    margin-top: 40px;
+    width: 100%;
+  }
+  &__wrapper {
+    overflow: auto;
+    height: 450px;
+  }
+  &__cell {
+    &__name {
+      display: flex;
+      align-items: center;
+    }
+    &__link {
+      color: #000;
+      font-weight: 500;
+      text-decoration: underline;
+      cursor: pointer;
+
+      & :hover {
+        color: #3b5998;
+      }
+    }
+  }
+}
+
+table {
+  width: 100%;
+}
+
+.game-image {
+  width: 100px;
+  max-height: 130px;
+  border-radius: 5px;
+  margin: 5px 10px 5px 0px;
+
+  object-fit: contain;
+}

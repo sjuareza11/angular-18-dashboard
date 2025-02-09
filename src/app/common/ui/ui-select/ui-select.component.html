@@ -1,0 +1,14 @@
+<div class="ui-select">
+  <label class="ui-select__label" for="uiSelect">{{ label() }}</label>
+  <select
+    [attr.data-testid]="dataTestId()"
+    class="ui-select__dropdown"
+    id="uiSelect"
+    [ngModel]="selectedOption()"
+    (ngModelChange)="onChangeOption($event)"
+  >
+    @for (option of options(); track $index) {
+      <option [value]="option">{{ option }}</option>
+    }
+  </select>
+</div>

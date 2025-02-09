@@ -1,0 +1,25 @@
+<div class="dashboard">
+  <div class="dashboard__header">
+    <h1>Videogames Dashboard</h1>
+    <div class="dashboard__header__actions">
+      <div class="dashboard__header__actions__select">
+        <ui-select
+          [options]="platforms()"
+          [label]="'Plataformas:'"
+          [selectedOption]="DEFAULT_PLATFORM_LABEL"
+          (changeOption)="onChangePlatform($event)"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="dashboard__section">
+    <app-bar-chart class="dashboard__chart" [title]="'Ventas'" [barChartData]="barChartData()" />
+    <app-pie-chart class="dashboard__chart" [title]="'Ingresos'" [pieChartData]="pieChartData()" />
+  </div>
+  <div class="dashboard__section">
+    <app-top-sales-table class="dashboard__table" #topSales />
+  </div>
+  <div class="dashboard__section">
+    <app-top-rating-table class="dashboard__table" #topRating />
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="top-sales-table-container">
+  <h3 class="top-sales-table__title">{{ 'Videojuegos más vendidos' }}</h3>
+  <ui-input [(inputValue)]="searchValue" [placeholder]="'Ejemplo: Gran turismo 2'" (inputValueChange)="onSearchCriteriaChange()" />
+  <div class="top-sales-table__wrapper">
+    <table mat-table [dataSource]="sales()" class="mat-elevation-z8">
+      <ng-container matColumnDef="productName">
+        <th mat-header-cell *matHeaderCellDef>Producto</th>
+        <td mat-cell *matCellDef="let sale">
+          <div class="top-sales-table__cell__name">
+            <img [src]="sale.imageURL" alt="{{ sale.productName }}" class="game-image" />
+            <a [routerLink]="['products/' + sale.productName]" routerLinkActive="router-link-active" class="top-sales-table__cell__link">{{
+              sale.productName
+            }}</a>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="platform">
+        <th mat-header-cell *matHeaderCellDef>Plataforma</th>
+        <td mat-cell *matCellDef="let sale">{{ sale.platform }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Cantidad</th>
+        <td mat-cell *matCellDef="let sale">{{ sale.amount }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="DISPLAYED_COLUMNS; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: DISPLAYED_COLUMNS"></tr>
+    </table>
+  </div>
+  <mat-paginator
+    #topSalesPaginator
+    [length]="totalSales()"
+    (page)="onPageChange($event)"
+    [pageSize]="25"
+    [pageSizeOptions]="[25, 50, 100]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

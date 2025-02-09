@@ -1,0 +1,31 @@
+.pie-chart {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__title {
+    width: 100%;
+  }
+  & canvas.pie-chart__canvas {
+    height: 410px !important;
+    width: 410px !important;
+  }
+}
+
+@media screen and (width > 1440px) {
+  .pie-chart {
+    & canvas.pie-chart__canvas {
+      height: 322px !important;
+      width: 322px !important;
+    }
+  }
+}
+
+@media screen and (width >= 1884px) {
+  .pie-chart {
+    & canvas.pie-chart__canvas {
+      height: 410px !important;
+      width: 410px !important;
+    }
+  }
+}

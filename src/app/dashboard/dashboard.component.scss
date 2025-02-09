@@ -1,0 +1,96 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0 auto;
+  // background-color: #f5f5f5;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 40px 0;
+
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      width: 100%;
+    }
+
+    &__actions {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-wrap: wrap;
+    :last-of-type {
+      padding-bottom: 50px;
+    }
+  }
+
+  &__chart {
+    display: flex;
+    width: 100%;
+  }
+
+  &__table {
+    width: 100%;
+  }
+}
+
+@media screen and (width >= 768px) {
+  .dashboard {
+    max-width: 650px;
+
+    &__chart {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (width >= 1200px) {
+  app-bar-chart {
+    margin-right: 60px;
+  }
+  .dashboard {
+    max-width: 1100px;
+
+    &__header {
+      flex-wrap: nowrap;
+    }
+
+    &__chart {
+      width: 520px;
+    }
+  }
+}
+
+@media screen and (width > 1440px) {
+  app-bar-chart {
+    margin-right: 60px;
+  }
+  .dashboard {
+    max-width: 1350px;
+
+    &__chart {
+      width: 645px;
+    }
+  }
+}
+
+@media screen and (width >= 1884px) {
+  app-bar-chart {
+    margin-right: 60px;
+  }
+  .dashboard {
+    max-width: 1700px;
+
+    &__chart {
+      width: 820px;
+    }
+  }
+}
